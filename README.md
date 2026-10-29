@@ -59,13 +59,4 @@
 | **Vanilla JavaScript (ES6+)** | محرك الوقت الحقيقي، تخصيص الخامات، إدارة السلة واللغات |
 | **Web Audio API** | توليد صوت دقات الساعة الميكانيكية برمجياً |
 
----
 
-## 💼 كيف تصف هذا المشروع في سيرتك الذاتية (CV Description Snippet)
-
-> **HAMSAWI CHRONO — 3D Interactive Luxury Watch Showroom**  
-> *Technologies:* Three.js, WebGL, JavaScript (ES6+), Web Audio API, CSS3 Variables, LocalStorage.  
-> - Designed and developed an interactive 3D WebGL watch showroom with full 360° turntable auto-rotation and orbit drag controls.  
-> - Created procedural PBR 3D watch geometry with real-time synchronized clock hands, sapphire crystal transmission, and customizable materials (18K Gold, Ceramic, Titanium).  
-> - Implemented dynamic studio lighting presets, camera presets, Web Audio API mechanical sound synthesis, and high-res WebGL snapshot captures.  
-> - Integrated bilingual RTL/LTR internationalization, Dark/Light modes, and WhatsApp automated checkout.
