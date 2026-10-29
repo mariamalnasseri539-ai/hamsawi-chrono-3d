@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Offers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0f7fa;
+            color: #006064;
+            margin: 0;
+            padding: 0;
+        }
+        .offers-header {
+            text-align: center;
+            background-color: #00796b;
+            color: white;
+            padding: 20px;
+        }
+        .offers-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+        .offer-card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            text-align: center;
+            width: 300px;
+        }
+        .offer-card img {
+            max-width: 100%;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .offer-card h3 {
+            margin: 10px 0;
+        }
+        .offer-card .price {
+            color: #006064;
+            margin: 5px 0;
+        }
+        .offer-card .price-old {
+            text-decoration: line-through;
+            color: #888;
+        }
+        .offer-card button {
+            background-color: #00796b;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .offer-card button:hover {
+            background-color: #004d40;
+        }
+    </style>
+</head>
+<body>
+    <header class="offers-header">
+        <h1>Explore All Offers</h1>
+        <p>Don't miss these amazing deals!</p>
+    </header>
+    <div class="offers-container">
+        <div class="offer-card">
+            <img src="new-product-3.jpg" alt="Product 1" onclick="showModal(this)">
+            <h3>Smartphone Deal</h3>
+            <p class="price"><span class="price-old">$500</span> $400</p>
+            <p>Quantity: 10</p>
+            <p>Offer Ends: January 29</p>
+            <button onclick="addToCart('Smartphone')">Add to Cart</button>
+        </div>
+        <div class="offer-card">
+            <img src="new-product-3.jpg" alt="Product 2" onclick="showModal(this)">
+            <h3>Blender Offer</h3>
+            <p class="price"><span class="price-old">$80</span> $60</p>
+            <p>Quantity: 15</p>
+            <p>Offer Ends: January 29</p>
+            <button onclick="addToCart('Blender')">Add to Cart</button>
+        </div>
+        <div class="offer-card">
+            <img src="new-product-3.jpg" alt="Product 2" onclick="showModal(this)">
+            <h3>Blender Offer</h3>
+            <p class="price"><span class="price-old">$80</span> $60</p>
+            <p>Quantity: 15</p>
+            <p>Offer Ends: January 29</p>
+            <button onclick="addToCart('Blender')">Add to Cart</button>
+        </div>
+        <div class="offer-card">
+            <img src="new-product-3.jpg" alt="Product 2" onclick="showModal(this)">
+            <h3>Blender Offer</h3>
+            <p class="price"><span class="price-old">$80</span> $60</p>
+            <p>Quantity: 15</p>
+            <p>Offer Ends: January 29</p>
+            <button onclick="addToCart('Blender')">Add to Cart</button>
+        </div>
+        <div class="offer-card">
+            <img src="new-product-3.jpg" alt="Product 2" onclick="showModal(this)">
+            <h3>Blender Offer</h3>
+            <p class="price"><span class="price-old">$80</span> $60</p>
+            <p>Quantity: 15</p>
+            <p>Offer Ends: January 29</p>
+            <button onclick="addToCart('Blender')">Add to Cart</button>
+        </div>
+        <div class="offer-card">
+            <img src="new-product-3.jpg" alt="Product 2" onclick="showModal(this)">
+            <h3>Blender Offer</h3>
+            <p class="price"><span class="price-old">$80</span> $60</p>
+            <p>Quantity: 15</p>
+            <p>Offer Ends: January 29</p>
+            <button onclick="addToCart('Blender')">Add to Cart</button>
+        </div>
+        <div class="offer-card">
+            <img src="new-product-3.jpg" alt="Product 2" onclick="showModal(this)">
+            <h3>Blender Offer</h3>
+            <p class="price"><span class="price-old">$80</span> $60</p>
+            <p>Quantity: 15</p>
+            <p>Offer Ends: January 29</p>
+            <button onclick="addToCart('Blender')">Add to Cart</button>
+        </div>
+        <div class="offer-card">
+            <img src="new-product-3.jpg" alt="Product 2" onclick="showModal(this)">
+            <h3>Blender Offer</h3>
+            <p class="price"><span class="price-old">$80</span> $60</p>
+            <p>Quantity: 15</p>
+            <p>Offer Ends: January 29</p>
+            <button onclick="addToCart('Blender')">Add to Cart</button>
+        </div>
+        <!-- Add more offer cards as needed -->
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="productModal">
+        <img id="modalImage" src="" alt="Product">
+        <button class="modal-close" onclick="closeModal()">Close</button>
+    </div>
+
+    <script>
+        function showModal(img) {
+            const modal = document.getElementById('productModal');
+            const modalImage = document.getElementById('modalImage');
+            modalImage.src = img.src;
+            modal.style.display = 'block';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('productModal');
+            modal.style.display = 'none';
+        }
+
+        function addToCart(productName) {
+            alert(`${productName} added to cart!`);
+        }
+    </script>
+</body>
+</html>

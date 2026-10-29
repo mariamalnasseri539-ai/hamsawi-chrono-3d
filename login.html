@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0f7fa;
+            color: #006064;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+
+        .login-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #00796b;
+        }
+
+        .login-container label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .login-container input, .login-container select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #00796b;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .login-container button:hover {
+            background-color: #004d40;
+        }
+
+        .error {
+            color: red;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+            display: none;
+        }
+
+        .lockout {
+            color: red;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" placeholder="Enter your password" required>
+
+            <label for="userType">I am a:</label>
+            <select id="userType" required>
+                <option value="">Select user type</option>
+                <option value="consumer">Consumer</option>
+                <option value="seller">Seller</option>
+                <option value="admin">Admin</option>
+            </select>
+
+            <p class="error" id="errorMessage">Invalid login. Please try again.</p>
+            <p class="lockout" id="lockoutMessage" style="display: none;">Too many attempts. Please try again in 10 minutes.</p>
+
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <script>
+        const form = document.getElementById('loginForm');
+        const errorMessage = document.getElementById('errorMessage');
+        const lockoutMessage = document.getElementById('lockoutMessage');
+
+        let loginAttempts = 0;
+        const maxAttempts = 3;
+        let lockoutTimer;
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const userType = document.getElementById('userType').value;
+
+            if (loginAttempts >= maxAttempts) {
+                lockoutMessage.style.display = 'block';
+                return;
+            }
+
+            if (validateInputs(email, password, userType)) {
+                // Simulate successful login
+                alert('Login successful!');
+                loginAttempts = 0; // Reset attempts on success
+            } else {
+                loginAttempts++;
+                errorMessage.style.display = 'block';
+                if (loginAttempts >= maxAttempts) {
+                    startLockout();
+                }
+            }
+        });
+
+        function validateInputs(email, password, userType) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const isEmailValid = emailRegex.test(email);
+            const isPasswordValid = password.length >= 6; // Example condition
+            const isUserTypeSelected = userType !== '';
+
+            return isEmailValid && isPasswordValid && isUserTypeSelected;
+        }
+
+        function startLockout() {
+            lockoutMessage.style.display = 'block';
+            form.querySelector('button').disabled = true;
+
+            lockoutTimer = setTimeout(() => {
+                loginAttempts = 0;
+                lockoutMessage.style.display = 'none';
+                form.querySelector('button').disabled = false;
+            }, 600000); // 10 minutes
+        }
+    </script>
+</body>
+</html>

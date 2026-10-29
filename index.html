@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HAMSAWI CHRONO | منصة عرض الساعات الفاخرة 3D</title>
+
+  <!-- Font Awesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ==================== TOP ANNOUNCEMENT BAR ==================== -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <div class="top-bar-left">
+        <a href="tel:736637418"><i class="fa-solid fa-phone"></i> <span data-i18n="top_phone">736637418 (967+)</span></a>
+        <a href="mailto:vip@hamsawi-chrono.com"><i class="fa-solid fa-envelope"></i> <span data-i18n="top_email">vip@hamsawi-chrono.com</span></a>
+        <span><i class="fa-solid fa-location-dot"></i> <span data-i18n="top_location">صنعاء • عدن • المكلا</span></span>
+      </div>
+      <div class="top-bar-right">
+        <span data-i18n="top_shipping"><i class="fa-solid fa-plane-up"></i> توصيل ملكي مجاني ومؤمن لجميع المدن والمحافظات</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== HEADER & NAVBAR ==================== -->
+  <header>
+    <nav id="navbar">
+      <div class="container nav-wrapper">
+        <!-- Brand Logo -->
+        <a href="#showroom" class="brand-logo">
+          <div class="brand-logo-icon">
+            <i class="fa-solid fa-stopwatch"></i>
+          </div>
+          <div class="brand-text">
+            <span class="brand-title">HAMSAWI <span>CHRONO</span></span>
+            <span class="brand-subtitle">Haute Horlogerie</span>
+          </div>
+        </a>
+
+        <!-- Navigation Menu -->
+        <ul class="nav-links">
+          <li><a href="#showroom" class="nav-link" data-i18n="nav_home">منصة العرض 3D</a></li>
+          <li><a href="#specs" class="nav-link" data-i18n="nav_specs">المواصفات الفنية</a></li>
+          <li><a href="#collection" class="nav-link" data-i18n="nav_collection">المجموعة الملكية</a></li>
+        </ul>
+
+        <!-- Action Controls -->
+        <div class="nav-actions">
+          <!-- Theme Switcher -->
+          <button id="themeToggleBtn" class="icon-btn" aria-label="Toggle Theme" title="تبديل المظهر">
+            <i class="fa-solid fa-sun"></i>
+          </button>
+
+          <!-- Language Switcher -->
+          <button id="langToggleBtn" class="lang-btn" aria-label="Toggle Language" title="تغيير اللغة">
+            <i class="fa-solid fa-globe"></i>
+            <span id="langBtnText">English</span>
+          </button>
+
+          <!-- Cart Trigger -->
+          <button class="icon-btn cart-trigger-btn" aria-label="View Cart" title="حقيبة المقتنيات">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span class="cart-badge-count" style="display:none;">0</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ==================== 3D INTERACTIVE SHOWROOM HERO ==================== -->
+  <section id="showroom" class="showroom-hero">
+    <div class="container">
+      <div class="showroom-layout">
+
+        <!-- 3D Viewport & Exhibition Turntable -->
+        <div class="showroom-viewport">
+          
+          <!-- Top Floating HUD -->
+          <div class="showroom-hud">
+            <div class="hud-pill">
+              <i class="fa-solid fa-cube"></i>
+              <span>3D Turntable Active</span>
+            </div>
+            
+            <div class="hud-actions">
+              <!-- Auto Rotate Toggle -->
+              <button id="toggleAutoRotateBtn" class="hud-action-btn active" title="تشغيل / إيقاف الدوران 360°" aria-label="Toggle Auto Rotate">
+                <i class="fa-solid fa-arrows-rotate"></i>
+              </button>
+
+              <!-- Mechanical Sound Toggle -->
+              <button id="toggleSoundBtn" class="hud-action-btn" title="صوت دقات الساعة الميكانيكية" aria-label="Toggle Sound">
+                <i class="fa-solid fa-volume-xmark"></i>
+              </button>
+
+              <!-- Snapshot Download -->
+              <button id="captureSnapshotBtn" class="hud-action-btn" title="التقاط صورة 3D بدقة عالية" aria-label="Capture 3D Snapshot">
+                <i class="fa-solid fa-camera"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Bottom Floating Camera Presets Dock -->
+          <div class="showroom-camera-dock">
+            <button class="cam-angle-btn active" data-angle="front" data-i18n="ctrl_angle_front">الميناء الأمامي</button>
+            <button class="cam-angle-btn" data-angle="profile" data-i18n="ctrl_angle_profile">الجانب والتاج</button>
+            <button class="cam-angle-btn" data-angle="caseback" data-i18n="ctrl_angle_caseback">المحرك الخلفي</button>
+            <button class="cam-angle-btn" data-angle="isometric" data-i18n="ctrl_angle_iso">منظور فخم 3D</button>
+            <button class="cam-angle-btn" data-angle="top" data-i18n="ctrl_angle_top">عرض علوي</button>
+          </div>
+
+          <!-- The WebGL Canvas Container -->
+          <div id="showroom3DCanvas"></div>
+
+        </div>
+
+        <!-- Showroom Customization & Info Panel -->
+        <div class="showroom-info">
+          
+          <div>
+            <span class="badge" data-i18n="hero_badge">✨ منصة عرض تفاعلية ثلاثية الأبعاد (360° 3D Turntable)</span>
+            <h1 class="showroom-title">
+              <span data-i18n="hero_title_highlight">HAMSAWI CHRONO</span><br>
+              <small style="font-size:1.6rem; font-weight:700; color:var(--text-main);" data-i18n="hero_title_p1">ساعات حمساوي الملكية</small>
+            </h1>
+          </div>
+
+          <p class="showroom-desc" data-i18n="hero_desc">
+            شاهد الساعة وهي تلف وتدور على منصة العرض الملكية من جميع جهاتها وزواياها! يمكنك لمس الساعة وتدويرها بحرية، تكبير الزوايا، فحص التاج والمحرك الخلفي، وتغيير الخامات والإضاءات فورياً.
+          </p>
+
+          <!-- Interactive Material & Finish Selector -->
+          <div class="customizer-box">
+            
+            <label class="customizer-label">
+              <i class="fa-solid fa-palette text-gold"></i>
+              <span data-i18n="ctrl_title_finishes">الخامات والألوان المتاحة:</span>
+            </label>
+
+            <div class="theme-swatches">
+              <!-- Gold -->
+              <button class="theme-swatch-btn active" data-theme="gold">
+                <span class="swatch-color-dot" style="background:#d4af37;"></span>
+                <span data-i18n="ctrl_finish_gold">ذهب ملكي 18K</span>
+              </button>
+
+              <!-- Obsidian -->
+              <button class="theme-swatch-btn" data-theme="obsidian">
+                <span class="swatch-color-dot" style="background:#181a20;"></span>
+                <span data-i18n="ctrl_finish_obsidian">سيراميك أوبسيديان</span>
+              </button>
+
+              <!-- Titanium -->
+              <button class="theme-swatch-btn" data-theme="titanium">
+                <span class="swatch-color-dot" style="background:#d8dde3;"></span>
+                <span data-i18n="ctrl_finish_titanium">تيتانيوم مصقول</span>
+              </button>
+
+              <!-- Rose Gold -->
+              <button class="theme-swatch-btn" data-theme="rosegold">
+                <span class="swatch-color-dot" style="background:#e89f88;"></span>
+                <span data-i18n="ctrl_finish_rosegold">روز جولد فاخر</span>
+              </button>
+
+              <!-- Cyber Blue -->
+              <button class="theme-swatch-btn" data-theme="cyberblue">
+                <span class="swatch-color-dot" style="background:#0c2540;"></span>
+                <span data-i18n="ctrl_finish_cyber">أزرق سايبر نيون</span>
+              </button>
+            </div>
+
+            <!-- Lighting Mode Selector -->
+            <div style="margin-top:16px;">
+              <label class="customizer-label" style="margin-bottom:8px;">
+                <i class="fa-solid fa-lightbulb text-cyan"></i>
+                <span data-i18n="ctrl_title_lighting">إضاءات منصة العرض:</span>
+              </label>
+
+              <div class="lighting-modes">
+                <button class="light-mode-btn active" data-mode="studio" data-i18n="ctrl_light_studio">استوديو احترافي</button>
+                <button class="light-mode-btn" data-mode="cyber" data-i18n="ctrl_light_cyber">نيون سايبر</button>
+                <button class="light-mode-btn" data-mode="sunset" data-i18n="ctrl_light_sunset">غروب ذهبي دافئ</button>
+                <button class="light-mode-btn" data-mode="minimal" data-i18n="ctrl_light_minimal">إضاءة ليلية خافتة</button>
+              </div>
+            </div>
+
+            <!-- Interaction hint -->
+            <div style="margin-top:16px; font-size:0.8rem; color:var(--text-muted); display:flex; align-items:center; gap:8px;">
+              <i class="fa-solid fa-hand-pointer text-gold"></i>
+              <span>اسحب بالفأرة أو المس الشاشة لتدوير الساعة 360° وفحصها من كل الزوايا بحرية!</span>
+            </div>
+
+          </div>
+
+          <!-- CTAs -->
+          <div class="showroom-cta-group">
+            <button class="btn btn-primary" onclick="addToCartById('h1')" data-i18n="hero_cta_order">
+              <i class="fa-solid fa-cart-shopping"></i>
+              طلب الساعة المخصصة
+            </button>
+            <a href="#collection" class="btn btn-secondary" data-i18n="hero_cta_explore">
+              <i class="fa-solid fa-compass"></i>
+              استعراض المجموعة
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TECHNICAL SPECIFICATIONS ==================== -->
+  <section id="specs" class="specs-section">
+    <div class="container">
+      
+      <div class="section-header">
+        <span class="badge" data-i18n="specs_badge">هندسة الدقة المتناهية</span>
+        <h2 class="section-title text-gold" data-i18n="specs_title">إتقان في كل ميكرون</h2>
+        <p class="section-subtitle" data-i18n="specs_subtitle">صُممت لأصحاب الذوق الرفيع وعشاق الساعات الميكانيكية والذكية الفاخرة.</p>
+        <div class="glow-divider"></div>
+      </div>
+
+      <div class="specs-grid">
+        <!-- Spec 1 -->
+        <div class="spec-card">
+          <div class="spec-icon-box">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <h3 class="spec-title" data-i18n="spec_1_title">جرم تيتانيوم درجة 5</h3>
+          <p class="spec-desc" data-i18n="spec_1_desc">معدن طيران فائق الخفة ومقاوم للصدمات مع حواف مشطوفة يدوياً.</p>
+        </div>
+
+        <!-- Spec 2 -->
+        <div class="spec-card">
+          <div class="spec-icon-box">
+            <i class="fa-solid fa-gem"></i>
+          </div>
+          <h3 class="spec-title" data-i18n="spec_2_title">زجاج ياقوتي مزدوج (Sapphire)</h3>
+          <p class="spec-desc" data-i18n="spec_2_desc">مقاوم للخدش بنسبة 100% مع 7 طبقات لامتصاص الانعكاسات الضوئية.</p>
+        </div>
+
+        <!-- Spec 3 -->
+        <div class="spec-card">
+          <div class="spec-icon-box">
+            <i class="fa-solid fa-gear"></i>
+          </div>
+          <h3 class="spec-title" data-i18n="spec_3_title">محرك كاليبر 9000 السويسري</h3>
+          <p class="spec-desc" data-i18n="spec_3_desc">حركة أوتوماتيكية باحتياطي طاقة 72 ساعة وتردد 28,800 ذبذبة/ساعة.</p>
+        </div>
+
+        <!-- Spec 4 -->
+        <div class="spec-card">
+          <div class="spec-icon-box">
+            <i class="fa-solid fa-water"></i>
+          </div>
+          <h3 class="spec-title" data-i18n="spec_4_title">مقاومة ماء حتى عمق 100 متر</h3>
+          <p class="spec-desc" data-i18n="spec_4_desc">تاج محكم لولبياً مع صمامات حماية ثلاثية للغوص والرياضات المائية.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== SIGNATURE COLLECTION ==================== -->
+  <section id="collection" class="collection-section">
+    <div class="container">
+      
+      <div class="section-header">
+        <span class="badge" data-i18n="collection_badge">مجموعاتنا المتميزة</span>
+        <h2 class="section-title text-gold" data-i18n="collection_title">سلسلة ساعات حمساوي كرونو</h2>
+        <p class="section-subtitle" data-i18n="collection_subtitle">اكتشف تحفاً فنية صُممت لتدوم أجيالاً وتخطف الأنظار</p>
+        <div class="glow-divider"></div>
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="collection-filters">
+        <button class="filter-btn active" data-filter="all" data-i18n="filter_all">جميع الساعات</button>
+        <button class="filter-btn" data-filter="chrono" data-i18n="filter_chrono">كرونوغراف</button>
+        <button class="filter-btn" data-filter="smart" data-i18n="filter_smart">سمارت برو</button>
+        <button class="filter-btn" data-filter="diver" data-i18n="filter_diver">دايفر 300M</button>
+        <button class="filter-btn" data-filter="gold" data-i18n="filter_gold">هيريتدج ذهبي</button>
+      </div>
+
+      <!-- Products Grid -->
+      <div class="products-grid" id="productsGrid">
+        <!-- Rendered dynamically by script.js -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== CART MODAL ==================== -->
+  <div class="modal-overlay" id="cartModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 data-i18n="cart_title">حقيبة مقتنياتك الفاخرة</h3>
+        <button class="modal-close-btn" id="cartCloseBtn" aria-label="Close modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div id="cartItemsList">
+          <!-- Filled dynamically via JS -->
+        </div>
+        <div class="cart-footer">
+          <div class="cart-total-bar">
+            <span data-i18n="cart_total">المجموع الكلي:</span>
+            <span id="cartTotalPrice" class="text-gold">$0</span>
+          </div>
+          <div style="display:flex; gap:12px;">
+            <button id="clearCartBtn" class="btn btn-secondary" style="flex:1;" data-i18n="cart_clear">
+              <i class="fa-solid fa-trash-can"></i>
+              تفريغ الحقيبة
+            </button>
+            <button id="whatsappOrderBtn" class="btn btn-primary" style="flex:2;" data-i18n="cart_whatsapp">
+              <i class="fa-brands fa-whatsapp"></i>
+              إرسال الطلب عبر واتساب
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer-section">
+    <div class="container">
+      
+      <div class="footer-inner">
+        <div class="brand-logo">
+          <div class="brand-logo-icon">
+            <i class="fa-solid fa-stopwatch"></i>
+          </div>
+          <div class="brand-text">
+            <span class="brand-title">HAMSAWI <span>CHRONO</span></span>
+            <span class="brand-subtitle">Haute Horlogerie</span>
+          </div>
+        </div>
+
+        <p style="color:var(--text-muted); max-width:450px; font-size:0.92rem;" data-i18n="footer_tagline">
+          دار الساعات الفاخرة والكرونوغراف الرائدة في اليمن والخليج العربي.
+        </p>
+
+        <div style="display:flex; gap:14px;">
+          <a href="https://wa.me/967736637418" target="_blank" class="icon-btn"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="#" class="icon-btn"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="icon-btn"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          <span>&copy; 2025 - 2026 HAMSAWI CHRONO. <span data-i18n="footer_rights">جميع الحقوق محفوظة.</span></span>
+          <div style="margin-top:4px;" data-i18n="footer_credits">
+            تم التطوير والإخراج بكل إتقان • مشروع بورتفوليو 3D WebGL
+          </div>
+        </div>
+        <div>
+          <span class="footer-pill">
+            <i class="fa-solid fa-cube"></i> Three.js • 3D Interactive Showroom Experience
+          </span>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ==================== JAVASCRIPT LIBRARIES & SCRIPTS ==================== -->
+  <!-- 1. Local Three.js with CDN Fallback -->
+  <script src="js/three.min.js"></script>
+  <script>
+    if (typeof THREE === "undefined") {
+      document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"><\/script>');
+    }
+  </script>
+
+  <!-- 2. Local OrbitControls with CDN Fallback -->
+  <script src="js/OrbitControls.js"></script>
+  <script>
+    if (typeof THREE !== "undefined" && typeof THREE.OrbitControls === "undefined") {
+      document.write('<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"><\/script>');
+    }
+  </script>
+
+  <!-- 3. Showroom 3D Engine -->
+  <script src="js/showroom.js"></script>
+
+  <!-- 4. Main Store Interactions & Bilingual Logic -->
+  <script src="script.js"></script>
+</body>
+</html>

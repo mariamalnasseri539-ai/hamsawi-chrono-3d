@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e0f7fa;
+            color:#0288d1;
+        }
+        .container {
+            width: 90%;
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .profile-image {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .profile-image img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #0288d1;
+        }
+        .profile-image button {
+            margin-top: 10px;
+            background-color:#0288d1;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .profile-image button:hover {
+            background-color: #359dd4;
+        }
+        .profile-details {
+            margin-bottom: 20px;
+        }
+        .profile-details div {
+            margin-bottom: 15px;
+        }
+        .profile-details label {
+            font-weight: bold;
+            display: inline-block;
+            width: 120px;
+        }
+        .profile-details span, .profile-details input, .profile-details select {
+            font-size: 16px;
+        }
+        .profile-details input, .profile-details select {
+            display: none;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .actions {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .actions button {
+            background-color:#0288d1;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 0 5px;
+        }
+        .actions button:hover {
+            background-color:#35abeb;
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #0288d1;
+            font-size: 14px;
+        }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Profile Image Section -->
+        <div class="profile-image">
+            <img id="userImage" src="default-profile.jpg" alt="User Profile">
+            <br>
+            <button onclick="changeImage()">Change Image</button>
+            <input type="file" id="imageInput" style="display: none;" accept="image/*" onchange="previewImage(event)">
+        </div>
+
+        <!-- Profile Details -->
+        <div class="profile-details" id="profileDetails">
+            <div>
+                <label for="username">Name:</label>
+                <span id="usernameDisplay">John Doe</span>
+                <input type="text" id="usernameInput" value="John Doe">
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <span id="emailDisplay">john.doe@example.com</span>
+                <input type="email" id="emailInput" value="john.doe@example.com">
+            </div>
+            <div>
+                <label for="userType">User Type:</label>
+                <span id="userTypeDisplay">Consumer</span>
+                <select id="userTypeInput">
+                    <option value="consumer" selected>Consumer</option>
+                    <option value="manager">Manager</option>
+                    <option value="merchant">Merchant</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="actions">
+            <button id="editButton" onclick="enableEditing()">Edit Profile</button>
+            <button id="saveButton" onclick="saveChanges()" style="display: none;">Save Changes</button>
+            <button id="cancelButton" onclick="cancelChanges()" style="display: none;">Cancel</button>
+        </div>
+    </div>
+
+    <footer>
+        All Rights Reserved © Hamsawi Store | Phone: 736637418
+    </footer>
+
+    <script>
+        const usernameDisplay = document.getElementById('usernameDisplay');
+        const emailDisplay = document.getElementById('emailDisplay');
+        const userTypeDisplay = document.getElementById('userTypeDisplay');
+
+        const usernameInput = document.getElementById('usernameInput');
+        const emailInput = document.getElementById('emailInput');
+        const userTypeInput = document.getElementById('userTypeInput');
+
+        const editButton = document.getElementById('editButton');
+        const saveButton = document.getElementById('saveButton');
+        const cancelButton = document.getElementById('cancelButton');
+
+        function enableEditing() {
+            usernameDisplay.style.display = 'none';
+            emailDisplay.style.display = 'none';
+            userTypeDisplay.style.display = 'none';
+
+            usernameInput.style.display = 'inline-block';
+            emailInput.style.display = 'inline-block';
+            userTypeInput.style.display = 'inline-block';
+
+            editButton.style.display = 'none';
+            saveButton.style.display = 'inline-block';
+            cancelButton.style.display = 'inline-block';
+        }
+
+        function saveChanges() {
+            usernameDisplay.textContent = usernameInput.value;
+            emailDisplay.textContent = emailInput.value;
+            userTypeDisplay.textContent = userTypeInput.options[userTypeInput.selectedIndex].text;
+
+            cancelEditing();
+            alert('Profile updated successfully!');
+        }
+
+        function cancelChanges() {
+            cancelEditing();
+        }
+
+        function cancelEditing() {
+            usernameDisplay.style.display = 'inline-block';
+            emailDisplay.style.display = 'inline-block';
+            userTypeDisplay.style.display = 'inline-block';
+
+            usernameInput.style.display = 'none';
+            emailInput.style.display = 'none';
+            userTypeInput.style.display = 'none';
+
+            editButton.style.display = 'inline-block';
+            saveButton.style.display = 'none';
+            cancelButton.style.display = 'none';
+        }
+
+        function changeImage() {
+            document.getElementById('imageInput').click();
+        }
+
+        function previewImage(event) {
+            const reader = new FileReader();
+            reader.onload = function () {
+                document.getElementById('userImage').src = reader.result;
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    </script>
+</body>
+</html>

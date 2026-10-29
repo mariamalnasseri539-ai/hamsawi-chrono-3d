@@ -1,2 +1,71 @@
-# hamsawi-chrono-3d
-⏱️ Cutting-edge 3D Interactive Luxury Watch Showroom built with Three.js &amp; WebGL. Features 360° turntable rotation, real-time clock hands, PBR material customizers, cinematic lighting, Web Audio API, and full bilingual (AR/EN) support.
+# ⏱️ HAMSAWI CHRONO — 3D Interactive Luxury Watch Showroom & E-Commerce
+
+> **مشروع فرونت إند ويب متقدم بتقنية 3D WebGL & Three.js للسي في ومعارض الأعمال**  
+> **A Cutting-Edge 3D WebGL / Three.js Interactive Horology Experience**
+
+---
+
+## 🌟 نظرة عامة على المشروع (Project Overview)
+**HAMSAWI CHRONO** هو موقع ويب ومنصة عرض تفاعلية ثلاثية الأبعاد (3D Interactive Showroom) لساعات اليد الملكية والكرونوغراف الفاخرة.
+
+تم تحويل المشروع وتطويره ليحتوي على **منصة عرض تفاعلية 360 درجة (3D Turntable)** حيث تدور الساعة في فضاء ثلاثي الأبعاد وتتيح للزائر تدويرها وفحصها من كافة الزوايا، فحص الميناء وحركة العقارب بالوقت الفعلي، تغيير الخامات والألوان، وتبديل الإضاءات السينمائية.
+
+---
+
+## ✨ المميزات الخارقة المضافة (Key Features)
+
+### 1. 🔄 منصة عرض تفاعلية 360 درجة (3D Turntable Showroom)
+- **دوران مستمر 360°:** تدور الساعة تلقائياً فوق منصة عرض أسطوانية مضيئة بحلقات نيون متوهجة.
+- **تحكم حر باللمس والفأرة (Full 3D Orbit & Zoom):** حرية كاملة للمستخدم في سحب الساعة وتدويرها في أي اتجاه، وفحص ظهر الساعة (Exhibition Caseback)، والتاج الجانبي (Crown).
+- **محرك عقارب يعمل بالوقت الفعلي (Real-Time Clock Engine):** عقارب الساعات والدقائق والثواني تتحرك بسلاسة تامة وفقاً لتوقيت جهاز المستخدم الحقيقي.
+
+### 2. 🎨 مخصص الخامات والألوان الفورية (Live Material & Finish Customizer)
+- 🥇 **ذهب ملكي 18K (Royal 18K Gold):** بريق ذهبي فخم بتشطيب معدني PBR.
+- 🖤 **سيراميك أوبسيديان (Obsidian Ceramic):** أسود مطفي فائق الفخامة.
+- ⚪ **تيتانيوم فضي مصقول (Brushed Titanium):** مظهر معدني هندسي عصري.
+- 🌸 **روز جولد فاخر (Sunset Rose Gold):** لمسة عصرية ناعمة وأنيقة.
+- 🔵 **أزرق سايبر نيون (Cyber Midnight):** مظهر تقني مستقبلي.
+
+### 3. 💡 أوضاع إضاءة المنصة السينمائية (Showroom Lighting Modes)
+- **استوديو احترافي (Studio Spotlight):** إضاءة بيضاء نقية تبرز تفاصيل المعدن المصقول.
+- **نيون سايبر (Cyber Neon):** إضاءة بنفسجية وزرقاء مستقبلية ساحرة.
+- **غروب ذهبي دافئ (Golden Sunset):** إضاءات كراميل وأمبر دافئة.
+- **إضاءة ليلية خافتة (Minimalist Dark):** تركيز الضوء على وهج الميناء.
+
+### 4. 📐 زوايا الكاميرا المحددة مسبقاً (Preset Camera Angles)
+- **الميناء الأمامي (Front Dial):** لقطة مستقيمة لقراءة الوقت وفحص زجاج الياقوت.
+- **الجانب والتاج (Crown Profile):** لفحص تفاصيل التاج الرقمي والسمك.
+- **المحرك الخلفي (Caseback Movement):** زاوية مخصصة للجهة الخلفية تظهر الروتور والمستشعر الحيوي.
+- **منظور فخم 3D (Isometric View):** رؤية مجسمة كاملة بزاوية علوية مائلة.
+
+### 5. 🔊 صوت دقات ميكانيكية وتصوير بدقة عالية (Audio & Snapshot)
+- **صوت تكتكة واقعي (Mechanical Tick Sound):** تم توليده برمجياً بدون ملفات صوت خارجية باستخدام **Web Audio API**.
+- **التقاط صورة 3D فورية (Capture Snapshot):** زر مخصص لتحميل صورة بدقة عالية للساعة بالزاوية التي يختارها المستخدم.
+
+### 6. 🌐 دعم كامل للعربية والإنجليزية والوضع الليلي (Bilingual & Dark/Light)
+- زر تبديل اللغة الفوري بين **العربية والإنجليزية** مع دعم كامل للـ RTL/LTR.
+- دعم الوضع الليلي والنهاري وحفظ التفضيلات تلقائياً في `localStorage`.
+- سلة مقتنيات تفاعلية مع **ربط مباشر بالواتساب** لتأكيد الطلب.
+
+---
+
+## 🛠️ التقنيات المستخدمة (Tech Stack)
+
+| التقنية | الاستخدام |
+| :--- | :--- |
+| **Three.js (r128)** | بناء المشهد ثلاثي الأبعاد، الخامات الفيزيائية (PBR Materials)، والضوء والظلال |
+| **OrbitControls** | التفاعل والتدوير والتقريب بالفأرة واللمس |
+| **HTML5 & CSS3** | تصميم واجهة HUD العائمة، الخطوط الفاخرة، والتجاوب مع جميع الشاشات |
+| **Vanilla JavaScript (ES6+)** | محرك الوقت الحقيقي، تخصيص الخامات، إدارة السلة واللغات |
+| **Web Audio API** | توليد صوت دقات الساعة الميكانيكية برمجياً |
+
+---
+
+## 💼 كيف تصف هذا المشروع في سيرتك الذاتية (CV Description Snippet)
+
+> **HAMSAWI CHRONO — 3D Interactive Luxury Watch Showroom**  
+> *Technologies:* Three.js, WebGL, JavaScript (ES6+), Web Audio API, CSS3 Variables, LocalStorage.  
+> - Designed and developed an interactive 3D WebGL watch showroom with full 360° turntable auto-rotation and orbit drag controls.  
+> - Created procedural PBR 3D watch geometry with real-time synchronized clock hands, sapphire crystal transmission, and customizable materials (18K Gold, Ceramic, Titanium).  
+> - Implemented dynamic studio lighting presets, camera presets, Web Audio API mechanical sound synthesis, and high-res WebGL snapshot captures.  
+> - Integrated bilingual RTL/LTR internationalization, Dark/Light modes, and WhatsApp automated checkout.

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>About Hamsawi Store</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e0f7fa;
+           color:  #0288d1;
+            /* color: #006064; */
+        }
+        .container {
+            width: 90%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        header input, header button, header textarea {
+            display: block;
+            width: 100%;
+            max-width: 400px;
+            margin: 10px auto;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        header button {
+            background-color:  #0288d1;
+            /* background-color: #00796b; */
+            color: #fff;
+            cursor: pointer;
+        }
+        header button:hover {
+            background-color:  #2599d8;
+            /* background-color: #004d40; */
+        }
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .social-icons a {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color:  #0288d1;
+            /* background-color: #00796b; */
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .social-icons a:hover {
+            background-color:  #159be4;
+            /* background-color: #004d40; */
+        }
+        .columns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .column {
+            flex: 1;
+            min-width: 200px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .column ul {
+            list-style: none;
+            padding: 0;
+        }
+        .column ul li {
+            margin: 10px 0;
+        }
+        .column ul li a {
+            text-decoration: none;
+            /* color: #006064; */
+            color:  #0288d1;
+        }
+        .column ul li a:hover {
+            color:  #1e9ce0;
+            /* color: #004d40; */
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color:  #0288d1;
+            /* background-color: #004d40; */
+            color: white;
+        }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .columns {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <hr style="background-color:  #0288d1;">
+    <div class="container">
+        <!-- Header Section -->
+        <header>
+            
+            <h2>Stay Updated with Hamsawi Store</h2>
+            <input type="email" id="newsletterEmail" placeholder="Enter your email">
+            <button onclick="subscribeNewsletter()">Subscribe</button>
+            <textarea id="userComment" rows="3" placeholder="Leave a comment"></textarea>
+            <button onclick="submitComment()">Submit Comment</button>
+            <div class="social-icons">
+                <a href="https://wa.me/736637418" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://telegram.org" target="_blank"><i class="fa-brands fa-telegram"></i></a>
+            </div>
+        </header>
+
+        <!-- Main Columns Section -->
+        <div class="columns">
+            <!-- Column 1 -->
+            <div class="column">
+                <h3>About Hamsawi Store</h3>
+                <p>Phone: 736637418</p>
+                <p>Email: hamsawi@gmail.com</p>
+                <p>Location: Sana'a, Yemen</p>
+            </div>
+            <!-- Column 2 -->
+            <div class="column">
+                <h3>Categories</h3>
+                <ul>
+                    <li><a href="category-food.html">Food</a></li>
+                    <li><a href="category-software.html">Software</a></li>
+                    <li><a href="category-hardware.html">Hardware</a></li>
+                </ul>
+            </div>
+            <!-- Column 3 -->
+            <div class="column">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="my-account.html">My Account</a></li>
+                    <li><a href="cart.html">Cart</a></li>
+                    <li><a href="orders.html">My Orders</a></li>
+                    <li><a href="help.html">Help</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        All Rights Reserved © Hamsawi Store | Phone: 736637418
+    </footer>
+
+    <script>
+        function subscribeNewsletter() {
+            const email = document.getElementById('newsletterEmail').value;
+            if (email === "") {
+                alert("Please enter your email.");
+                return;
+            }
+            alert(`Subscribed with email: ${email}`);
+        }
+
+        function submitComment() {
+            const comment = document.getElementById('userComment').value;
+            if (comment === "") {
+                alert("Please enter a comment.");
+                return;
+            }
+            alert(`Comment submitted: ${comment}`);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0f7fa;
+            color: #006064;
+            margin: 0;
+            padding: 0;
+        }
+        .product-section {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        .categories {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .categories button {
+            margin: 0 10px;
+            padding: 10px 20px;
+            background-color: #00796b;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .categories button:hover {
+            background-color: #004d40;
+        }
+        .product-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .product {
+            background-color: #e0f7fa;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+            width: 250px;
+            text-align: center;
+        }
+        .product img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        .product button {
+            margin-top: 10px;
+            background-color: #00796b;
+        }
+        .product-details {
+            display: none;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .product-details img {
+            max-width: 100%;
+        }
+        .simple-list {
+            margin: 20px 0;
+        }
+        .simple-list ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .simple-list li {
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 5px;
+            background-color: #e0f7fa;
+        }
+    </style>
+</head>
+<body>
+    <section class="product-section">
+        <h2>Products</h2>
+        <div class="categories">
+            <button onclick="filterProducts('food')">Food</button>
+            <button onclick="filterProducts('accessories')">Accessories</button>
+            <button onclick="filterProducts('home')">Home Items</button>
+        </div>
+        <div class="product-list" id="productList">
+            <div class="product" data-category="food">
+                <img src="./new-product-3.jpg" alt="Food">
+                <h3>Food Item</h3>
+                <p>Delicious food item description.</p>
+                <p><strong>Price: $10</strong></p>
+                <button onclick="addToCart(this)">Add to Cart</button>
+                <button onclick="viewDetails(this)">View Details</button>
+            </div>
+            <div class="product" data-category="accessories">
+                <img src="./new-product-3.jpg" alt="Accessory">
+                <h3>Accessory</h3>
+                <p>Stylish accessory description.</p>
+                <p><strong>Price: $20</strong></p>
+                <button onclick="addToCart(this)">Add to Cart</button>
+                <button onclick="viewDetails(this)">View Details</button>
+            </div>
+            <div class="product" data-category="accessories">
+                <img src="./new-product-3.jpg" alt="Accessory">
+                <h3>Accessory</h3>
+                <p>Stylish accessory description.</p>
+                <p><strong>Price: $20</strong></p>
+                <button onclick="addToCart(this)">Add to Cart</button>
+                <button onclick="viewDetails(this)">View Details</button>
+            </div>
+            <div class="product" data-category="accessories">
+                <img src="./new-product-3.jpg" alt="Accessory">
+                <h3>Accessory</h3>
+                <p>Stylish accessory description.</p>
+                <p><strong>Price: $20</strong></p>
+                <button onclick="addToCart(this)">Add to Cart</button>
+                <button onclick="viewDetails(this)">View Details</button>
+            </div>
+            <div class="product" data-category="accessories">
+                <img src="./new-product-3.jpg" alt="Accessory">
+                <h3>Accessory</h3>
+                <p>Stylish accessory description.</p>
+                <p><strong>Price: $20</strong></p>
+                <button onclick="addToCart(this)">Add to Cart</button>
+                <button onclick="viewDetails(this)">View Details</button>
+            </div>
+            <div class="product" data-category="accessories">
+                <img src="./new-product-3.jpg" alt="Accessory">
+                <h3>Accessory</h3>
+                <p>Stylish accessory description.</p>
+                <p><strong>Price: $20</strong></p>
+                <button onclick="addToCart(this)">Add to Cart</button>
+                <button onclick="viewDetails(this)">View Details</button>
+            </div>
+            <div class="product" data-category="accessories">
+                <img src="./new-product-3.jpg" alt="Accessory">
+                <h3>Accessory</h3>
+                <p>Stylish accessory description.</p>
+                <p><strong>Price: $20</strong></p>
+                <button onclick="addToCart(this)">Add to Cart</button>
+                <button onclick="viewDetails(this)">View Details</button>
+            </div>
+            <div class="product" data-category="accessories">
+                <img src="./new-product-3.jpg" alt="Accessory">
+                <h3>Accessory</h3>
+                <p>Stylish accessory description.</p>
+                <p><strong>Price: $20</strong></p>
+                <button onclick="addToCart(this)">Add to Cart</button>
+                <button onclick="viewDetails(this)">View Details</button>
+            </div>
+            <div class="product" data-category="accessories">
+                <img src="./new-product-3.jpg" alt="Accessory">
+                <h3>Accessory</h3>
+                <p>Stylish accessory description.</p>
+                <p><strong>Price: $20</strong></p>
+                <button onclick="addToCart(this)">Add to Cart</button>
+                <button onclick="viewDetails(this)">View Details</button>
+            </div>
+            <div class="product" data-category="accessories">
+                <img src="./new-product-3.jpg" alt="Accessory">
+                <h3>Accessory</h3>
+                <p>Stylish accessory description.</p>
+                <p><strong>Price: $20</strong></p>
+                <button onclick="addToCart(this)">Add to Cart</button>
+                <button onclick="viewDetails(this)">View Details</button>
+            </div>
+            <div class="product" data-category="accessories">
+                <img src="./new-product-3.jpg" alt="Accessory">
+                <h3>Accessory</h3>
+                <p>Stylish accessory description.</p>
+                <p><strong>Price: $20</strong></p>
+                <button onclick="addToCart(this)">Add to Cart</button>
+                <button onclick="viewDetails(this)">View Details</button>
+            </div>
+            <div class="product" data-category="home">
+                <img src="./new-product-3.jpg" alt="Home Item">
+                <h3>Home Item</h3>
+                <p>Useful home item description.</p>
+                <p><strong>Price: $15</strong></p>
+                <button onclick="addToCart(this)">Add to Cart</button>
+                <button onclick="viewDetails(this)">View Details</button>
+            </div>
+        </div>
+        <div class="product-details" id="productDetails"></div>
+        <div class="simple-list" id="simpleList" style="display:none;">
+            <ul>
+                <li>Product Name: Food Item, Price: $10</li>
+                <li>Product Name: Accessory, Price: $20</li>
+                <li>Product Name: Home Item, Price: $15</li>
+            </ul>
+        </div>
+    </section>
+
+    <script>
+        function filterProducts(category) {
+            const products = document.querySelectorAll('.product');
+            products.forEach(product => {
+                if (product.dataset.category === category || category === 'all') {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        }
+
+        function addToCart(button) {
+            alert('Product added to cart!');
+            // Here, code to update the cart dynamically would be added.
+        }
+
+        function viewDetails(button) {
+            const product = button.closest('.product');
+            const details = document.getElementById('productDetails');
+            details.style.display = 'block';
+            details.innerHTML = `
+                <h2>${product.querySelector('h3').textContent}</h2>
+                <img src="${product.querySelector('img').src}" alt="${product.querySelector('h3').textContent}">
+                <p>${product.querySelector('p').textContent}</p>
+                <button onclick="hideDetails()">Close</button>
+            `;
+        }
+
+        function hideDetails() {
+            const details = document.getElementById('productDetails');
+            details.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
